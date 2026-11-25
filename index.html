@@ -1,1 +1,30 @@
-data:text/html,<meta%20charset=utf-8><meta%20name=htmx-config%20content='%7B%22selfRequestsOnly%22:false%7D'><script%20src=https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js></script><script%20src=https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/ext/client-side-templates.js></script><script%20src=https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js></script><h1>DummyJSON</h1><button%20hx-ext=client-side-templates%20hx-get='https://dummyjson.com/users?limit=6&select=firstName,lastName,email,image,company,city'%20hx-target='next%20.out'%20hx-trigger='load,click'%20handlebars-template=t>Загрузить</button><div%20class=out></div><script%20id=t%20type=text/x-handlebars-template>{{%23each%20users}}<p>{{firstName}}%20{{lastName}}%20—%20{{email}}</p>{{/each}}</script>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DummyJSON Users — htmx + Handlebars</title>
+<meta name="htmx-config" content='{"selfRequestsOnly":false}'>
+<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/ext/client-side-templates.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;color:%231f2328}
+h1{margin-bottom:20px}
+button{padding:8px 16px;font-size:15px;cursor:pointer}
+.out{margin-top:20px}
+.out p{padding:10px 14px;margin:8px 0;border:1px solid %23d0d7de;border-radius:6px;background:%23f6f8fa}
+</style>
+</head>
+<body>
+<h1>DummyJSON</h1>
+<button
+  hx-ext="client-side-templates"
+  hx-get="https://dummyjson.com/users?limit=6&select=firstName,lastName,email,image,company,city"
+  hx-target="next .out"
+  hx-trigger="load,click"
+  handlebars-template="t">Загрузить</button>
+<div class="out"></div>
+<script id="t" type="text/x-handlebars-template">{{#each users}}<p>{{firstName}} {{lastName}} — {{email}}</p>{{/each}}</script>
+</body>
+</html>
